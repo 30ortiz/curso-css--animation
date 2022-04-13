@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Back visibility</title>
+  <style>
+    :root {
+      margin: 0;
+      padding: 0;
+      font-family: "Roboto", sans-serif;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      height: 100vh;
+      align-items: center;
+      justify-content: center;
+      background-color: rgb(243, 243, 145);
+    }
+
+    .container--card {
+      width: 70%;
+      height: 70vh;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 10px;
+
+    }
+
+    .card {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width:150px;
+      height: 200px;
+      /* background-color: hotpink; */
+      justify-self: center;
+      align-self: center;
+      position: relative;
+      transform-style: preserve-3d;
+      box-shadow: -2px 15px 10px -6px rgba(0, 0, 0, .75);
+    }
+
+
+    .card--face {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10%;
+      border: 5px solid #fffaf2;
+      position: absolute;
+      backface-visibility: hidden;
+      font-size: 40px;
+      box-shadow: inset 5px 6px 7px -6px #000000,
+        inset -5px -6px 7px -6px #000000,
+
+    }
+
+    .card--face.card--front {
+      background-color: white;
+      color: black;
+      transform: rotateY(180deg);
+    }
+
+    .card--face.card--back {
+      background-image: linear-gradient(326deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+      color: black;
+
+    }
+
+
+    .card--1 {
+      grid-area: 1 / 1 / 2 / 2;
+    }
+
+    #btnControl {
+      display: none;
+    }
+
+    #btnControl:checked+label>.card {
+      transition: transform 6s cubic-bezier(0.22, 1, 0.36, 1);
+      transform: rotateY(900deg);
+    }
+
+    #btnControl:not(:checked) +label>.card {
+      transition: transform 6s cubic-bezier(0.22, 1, 0.36, 1);
+      transform: rotateY(-360deg);
+    }
+
+    #btnControl2 {
+      display: none;
+    }
+
+    #btnControl2:checked+label>.card {
+      transition: transform 6s cubic-bezier(0.22, 1, 0.36, 1);
+      transform: rotateY(900deg);
+    }
+
+    #btnControl2:not(:checked) +label>.card {
+      transition: transform 6s cubic-bezier(0.22, 1, 0.36, 1);
+      transform: rotateY(-360deg);
+    }
+
+    #btnControl3 {
+      display: none;
+    }
+
+    #btnControl3:checked+label>.card {
+      transition: transform 6s cubic-bezier(0.22, 1, 0.36, 1);
+      transform: rotateY(900deg);
+    }
+
+    #btnControl3:not(:checked) +label>.card {
+      transition: transform 6s cubic-bezier(0.22, 1, 0.36, 1);
+      transform: rotateY(-360deg);
+    }
+
+    #btnControl4 {
+      display: none;
+    }
+
+    #btnControl4:checked+label>.card {
+      transition: transform 6s cubic-bezier(0.22, 1, 0.36, 1);
+      transform: rotateY(900deg);
+    }
+
+    #btnControl4:not(:checked) +label>.card {
+      transition: transform 6s cubic-bezier(0.22, 1, 0.36, 1);
+      transform: rotateY(-360deg);
+    }
+
+    #btnControl5 {
+      display: none;
+    }
+
+    #btnControl5:checked+label>.card {
+      transition: transform 6s cubic-bezier(0.22, 1, 0.36, 1);
+      transform: rotateY(900deg);
+    }
+
+    #btnControl5:not(:checked) +label>.card {
+      transition: transform 6s cubic-bezier(0.22, 1, 0.36, 1);
+      transform: rotateY(-360deg);
+    }
+    #btnControl6 {
+      display: none;
+    }
+
+    #btnControl6:checked+label>.card {
+      transition: transform 6s cubic-bezier(0.22, 1, 0.36, 1);
+      transform: rotateY(900deg);
+    }
+
+    #btnControl6:not(:checked) +label>.card {
+      transition: transform 6s cubic-bezier(0.22, 1, 0.36, 1);
+      transform: rotateY(-360deg);
+    }
+    #btnControl7 {
+      display: none;
+    }
+
+    #btnControl7:checked+label>.card {
+      transition: transform 6s cubic-bezier(0.22, 1, 0.36, 1);
+      transform: rotateY(900deg);
+    }
+
+    #btnControl7:not(:checked) +label>.card {
+      transition: transform 6s cubic-bezier(0.22, 1, 0.36, 1);
+      transform: rotateY(-360deg);
+    }
+
+    #btnControl8 {
+      display: none;
+    }
+
+    #btnControl8:checked+label>.card {
+      transition: transform 6s cubic-bezier(0.22, 1, 0.36, 1);
+      transform: rotateY(900deg);
+    }
+
+    #btnControl8:not(:checked) +label>.card {
+      transition: transform 6s cubic-bezier(0.22, 1, 0.36, 1);
+      transform: rotateY(-360deg);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container--card">
+    <input type="checkbox" id="btnControl" />
+    <label class="btn" for="btnControl">
+      <div class="card card--1">
+        <div class="card--face card--front">♠</div>
+        <div class="card--face card--back"></div>
+      </div>
+    </label>
+
+    <input type="checkbox" id="btnControl2" />
+    <label class="btn" for="btnControl2">
+      <div class="card card--1">
+        <div class="card--face card--front">♥</div>
+        <div class="card--face card--back"></div>
+      </div>
+    </label>
+
+    <input type="checkbox" id="btnControl3" />
+    <label class="btn" for="btnControl3">
+      <div class="card card--1">
+        <div class="card--face card--front">♣</div>
+        <div class="card--face card--back"></div>
+      </div>
+    </label>
+
+    <input type="checkbox" id="btnControl4" />
+    <label class="btn" for="btnControl4">
+      <div class="card card--1">
+        <div class="card--face card--front">♦</div>
+        <div class="card--face card--back"></div>
+      </div>
+    </label>
+
+    <input type="checkbox" id="btnControl5" />
+    <label class="btn" for="btnControl5">
+      <div class="card card--1">
+        <div class="card--face card--front">♥</div>
+        <div class="card--face card--back"></div>
+      </div>
+    </label>
+
+    <input type="checkbox" id="btnControl6" />
+    <label class="btn" for="btnControl6">
+      <div class="card card--1">
+        <div class="card--face card--front">♠</div>
+        <div class="card--face card--back"></div>
+      </div>
+    </label>
+
+    <input type="checkbox" id="btnControl7" />
+    <label class="btn" for="btnControl7">
+      <div class="card card--1">
+        <div class="card--face card--front">♦</div>
+        <div class="card--face card--back"></div>
+      </div>
+    </label>
+
+    <input type="checkbox" id="btnControl8" />
+    <label class="btn" for="btnControl8">
+      <div class="card card--1">
+        <div class="card--face card--front">♣</div>
+        <div class="card--face card--back"></div>
+      </div>
+    </label>
+  </div>
+</body>
+
+</html>

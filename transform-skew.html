@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skew</title>
+  <style>
+    :root {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      margin:0;
+      padding:0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      background-color: beige;
+    }
+
+    .circle{
+      width:300px;
+      height: 300px;
+      border-radius: 5%;
+      margin-top: 100px;
+      background: linear-gradient(0deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);;
+    }
+
+
+    
+    .circle:hover{
+      transition: 1s;
+      transform: skew(0deg,20deg);
+      background: linear-gradient(-30deg, rgba(131,58,180,1) 20%, rgba(253,29,29,1) 40%, rgba(252,176,69,1) 100%);;
+
+    }
+
+  </style>
+</head>
+<body>
+  <div class="circle"></div>
+  
+</body>
+</html>
